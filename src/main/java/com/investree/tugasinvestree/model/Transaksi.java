@@ -20,20 +20,20 @@ public class Transaksi implements Serializable {
     private Integer tenor;
 
     @Column(name = "total_pinjaman")
-    private Double totalPinjaman;
+    private double totalPinjaman;
 
     @Column(name = "bunga_persen")
-    private Double bungaPersen;
+    private double bungaPersen;
 
     @Column(name = "status")
     private String status;
 
     @ManyToOne
-    @JoinColumn(name = "id_meminjam")
+    @JoinColumn(name = "id_meminjam", referencedColumnName = "id")
     private User userMeminjam;
 
     @ManyToOne
-    @JoinColumn(name = "id_peminjam")
+    @JoinColumn(name = "id_peminjam", referencedColumnName = "id")
     private User userPeminjam;
 
     @OneToMany(mappedBy = "transaksi")

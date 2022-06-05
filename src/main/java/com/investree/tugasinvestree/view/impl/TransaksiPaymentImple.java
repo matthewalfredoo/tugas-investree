@@ -23,12 +23,12 @@ public class TransaksiPaymentImple implements TransaksiService {
         try{
             Transaksi insertTransaksi = transaksiRepository.save(transaksi);
             map.put("data", insertTransaksi);
-            map.put("code", "200");
             map.put("status", "sukses");
+            map.put("code", "200");
             return map;
         } catch (Exception e){
-            map.put("code", "500");
             map.put("status", "gagal");
+            map.put("code", "500");
             return map;
         }
     }
@@ -42,12 +42,12 @@ public class TransaksiPaymentImple implements TransaksiService {
             updateTransaksi.setStatus("Lunas");
             Transaksi savedUpdatedTransaksi = transaksiRepository.save(updateTransaksi);
             map.put("data", savedUpdatedTransaksi);
-            map.put("code", "200");
             map.put("status", "sukses");
+            map.put("code", "200");
             return map;
         } catch (Exception e){
-            map.put("code", "500");
             map.put("status", "gagal");
+            map.put("code", "500");
             return map;
         }
     }

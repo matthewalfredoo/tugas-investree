@@ -1,6 +1,8 @@
 package com.investree.tugasinvestree.repository;
 
 import com.investree.tugasinvestree.model.Transaksi;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -12,7 +14,13 @@ import java.util.List;
 public interface TransaksiRepository extends JpaRepository<Transaksi, Long> {
 
     @Query("select c from Transaksi c")
-    public List<Transaksi> getAllData();
+    Page<Transaksi> getAllData(Pageable pageable);
+
+
+    Page<Transaksi> findByStatus(
+            String status,
+            Pageable pageable
+    );
 
     @Query("select c from Transaksi c WHERE c.id = :id")
     public Transaksi getbyID(

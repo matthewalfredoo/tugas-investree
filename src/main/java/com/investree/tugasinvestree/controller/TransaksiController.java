@@ -47,7 +47,7 @@ public class TransaksiController {
             @RequestParam(value = "status", defaultValue = "") String status
     ) {
         if(status.equals("")) {
-            Page<Transaksi> transaksiPage = transaksiRepository.findAll(PageRequest.of(page, size));
+            Page<Transaksi> transaksiPage = transaksiRepository.getAllData(PageRequest.of(page, size));
             return new ResponseEntity<Page<Transaksi>>(transaksiPage, HttpStatus.OK);
         } else {
             Page<Transaksi> transaksiPage = transaksiRepository.findByStatus(status, PageRequest.of(page, size));
